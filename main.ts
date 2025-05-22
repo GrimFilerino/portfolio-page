@@ -14,10 +14,6 @@ app.get("/", (req: any, res: any) => {
     res.sendFile(path.join(Deno.cwd(), "views", "index.html"));
 });
 
-app.get("/contact-me", (req: any, res: any) => {
-    res.sendFile(path.join(Deno.cwd(), "views", "contact.html"));
-});
-
 
 // Start the server
 app.listen(8888, () => {
