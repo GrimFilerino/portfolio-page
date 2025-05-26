@@ -8,9 +8,20 @@ const app = express();
 // Serve static files from the "assets" directory
 //app.use("/public",express.static(path.join(Deno.cwd(), "public"), { etag: false}));
 app.use("/less-css", (req, res, next) => {
-    const oneWeek = 7 * 24 * 60 * 60;
-    res.setHeader("Cache-Control", `public, max-age=${oneWeek}`);
-    next();
+    try {
+        // your cache headers or etag logic
+        const oneWeek = 7 * 24 * 60 * 60;
+        res.setHeader("Cache-Control", `public, max-age=${oneWeek}`);
+
+        next();
+    } catch (err) {
+        if (err.name === "AbortError") {
+            // Client aborted request — safe to ignore or log if needed
+            console.warn("Request aborted by client.");
+            return;
+        }
+        next(err);
+    }
 },expressLess(path.join(Deno.cwd(), "public", "less"), { compress: true }));
 
 // Set the view engine to EJS
