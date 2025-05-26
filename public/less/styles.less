@@ -57,7 +57,7 @@ footer {
 		list-style: none;
 
 		li {
-			padding-bottom: 3px;
+			padding-bottom: 10px;
             text-align: right;
 		}
 	}
@@ -241,26 +241,6 @@ footer {
 		left: -7px;
 		bottom: -10px;
 	}
-
-	.point {
-		content: "";
-		width: 12px;
-		height: 12px;
-		border: 3px solid var(--text-color);
-		border-radius: 1000em;
-		background-color: var(--node-color);
-		position: relative;
-		left: -9px;
-		top: -5px;
-
-		&.two {
-			top: 143px;
-		}
-
-		&.three {
-			top: 292px;
-		}
-	}
 }
 
 .node {
@@ -287,6 +267,18 @@ footer {
 
 		&.company {
 			font-size: 16px;
+
+            &:before {
+                content: " ";
+                width: 12px;
+                height: 12px;
+                border: 3px solid var(--text-color);
+                border-radius: 1000em;
+                background-color: var(--node-color);
+                position: relative;
+                position: absolute;
+                left: 7px;
+            }
 
 			a {
 				color: var(--text-color);
@@ -362,6 +354,42 @@ footer {
 	padding-top: 10px;
 	padding-bottom: 5px;
 }
+
+.disable-on-mobile {
+    display: block;
+}
+
+@media only screen and (max-width: 1000px) {
+    header {
+        max-width: 80vw;
+    }
+
+    .section {
+        max-width: 80vw;
+
+        .node {
+            padding-top: 40px;
+
+            .company:before {
+                left: 5px;
+            }
+        }
+    }
+
+    footer {
+        max-width: 80vw;
+    }
+
+    .disable-on-mobile {
+        display: none;
+    }
+
+    .time-line {
+        top:8%;
+    }
+
+}
+
 
 /* ===== GRID ROW COLUMN CODE ===== */
 .row {
