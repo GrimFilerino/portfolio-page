@@ -9,7 +9,7 @@ const app = express();
 //app.use("/public",express.static(path.join(Deno.cwd(), "public"), { etag: false}));
 app.use("/less-css", (req, res, next) => {
     const oneWeek = 7 * 24 * 60 * 60;
-    res.setHeader("Cache-Control", `public, max-age=${oneWeek}`);
+    res.setHeader("Cache-Control", `max-age=${oneWeek}`);
     next();
 },expressLess(path.join(Deno.cwd(), "public", "less"), { compress: true }));
 
