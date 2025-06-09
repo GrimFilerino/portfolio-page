@@ -13,11 +13,12 @@ app.use("/less-css", (req, res, next) => {
     next();
 },expressLess(path.join(Deno.cwd(), "public", "less"), { compress: true }));
 
+app.use('/favicon.ico', express.static('./public/assets/favicon.ico'));
+
 // Set the view engine to EJS
 app.get("/", (req: any, res: any) => {
     res.sendFile(path.join(Deno.cwd(), "views", "index.html"));
 });
-
 
 // Start the server
 app.listen(8888, () => {
