@@ -1,5 +1,5 @@
 import express from "npm:express";
-import path from "npm:path";
+import * as path from "jsr:@std/path";
 import expressLess from "npm:express-less";
 
 // Create an instance of the express application
