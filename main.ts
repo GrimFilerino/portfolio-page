@@ -20,6 +20,21 @@ app.get("/", (req: any, res: any) => {
     res.sendFile(path.join(Deno.cwd(), "views", "index.html"));
 });
 
+//robots.txt
+app.get("/", (req: any, res: any) => {
+    res.sendFile(path.join(Deno.cwd(), "public/assets", "robots.txt"));
+});
+
+//llms.txt
+app.get("/", (req: any, res: any) => {
+    res.sendFile(path.join(Deno.cwd(), "public/assets", "llms.txt"));
+});
+
+//sitemap.xml
+app.get("/", (req: any, res: any) => {
+    res.sendFile(path.join(Deno.cwd(), "public/assets", "sitemap.xml"));
+});
+
 // Start the server
 app.listen(8888, () => {
     console.log("Server is running on http://localhost:8888");
