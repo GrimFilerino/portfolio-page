@@ -21,17 +21,17 @@ app.get("/", (req: any, res: any) => {
 });
 
 //robots.txt
-app.get("/", (req: any, res: any) => {
+app.get("/robots.txt", (req: any, res: any) => {
     res.sendFile(path.join(Deno.cwd(), "public/assets", "robots.txt"));
 });
 
 //llms.txt
-app.get("/", (req: any, res: any) => {
+app.get("/llms.txt", (req: any, res: any) => {
     res.sendFile(path.join(Deno.cwd(), "public/assets", "llms.txt"));
 });
 
 //sitemap.xml
-app.get("/", (req: any, res: any) => {
+app.get("/sitemap.xml", (req: any, res: any) => {
     res.sendFile(path.join(Deno.cwd(), "public/assets", "sitemap.xml"));
 });
 
